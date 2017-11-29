@@ -1,0 +1,42 @@
+﻿<Window x:Name="Login1" x:Class="GUI_SF_13_2016.GUI.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_SF_13_2016.GUI"
+        mc:Ignorable="d"
+        Title="Login" Height="200" Width="400" 
+        WindowStartupLocation="CenterScreen">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Name="lbKorisnickoIme" Content="Korisnicko ime: " 
+               Grid.Column="0" Grid.Row="0"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+        <TextBox Name="tbKorisnickoIme"
+            Grid.Column="1" Grid.Row="0" 
+                 HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+
+        <Label Name="lbLozinka" Content="Lozinka: "
+               Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0"/>
+        <TextBox Name="tbLozinka"
+            Grid.Column="1" Grid.Row="1" 
+                 HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+
+        <Button Name="btPotvrdi" Content="Potvrdi"
+                Grid.Column="1" Grid.Row="2" Margin="35,19,38,10" 
+                Click="btPotvrdi_Click"/>
+
+
+
+    </Grid>
+</Window>

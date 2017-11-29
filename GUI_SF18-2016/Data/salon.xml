@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSalon xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Salon>
+    <Id>1</Id>
+    <Naziv>Forma FTNale</Naziv>
+    <Adresa>Trg Dositeja Obradovica 6</Adresa>
+    <Telefon>021/454-3434</Telefon>
+    <Email>dekan@ftn.uns.ac.rs</Email>
+    <WebSajt>http://www.ftn.uns.ac.rs</WebSajt>
+    <PIB>123213</PIB>
+    <MaticniBroj>324324324</MaticniBroj>
+    <BrojZiroRacuna>840-000171666-45</BrojZiroRacuna>
+    <Obrisan>false</Obrisan>
+  </Salon>
+</ArrayOfSalon>
