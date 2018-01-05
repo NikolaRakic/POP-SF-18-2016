@@ -1,0 +1,15 @@
+﻿<Window x:Class="GUI_SF18_2016.GUI.FrmPotvrdaBrisanja"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_SF18_2016.GUI"
+        mc:Ignorable="d"
+        Title="Potvrda brisanja podatka" Height="173.494" Width="437.349" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Da li ste sigurni da zelite obrisati podatak ?" HorizontalAlignment="Left" Margin="87,36,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnDa" Content="Da" HorizontalAlignment="Left" Margin="121,87,0,0" VerticalAlignment="Top" Width="75" Click="btnDa_Click"/>
+        <Button x:Name="btnNe" Content="Ne" HorizontalAlignment="Left" Margin="222,87,0,0" VerticalAlignment="Top" Width="75" Click="btnNe_Click"/>
+
+    </Grid>
+</Window>

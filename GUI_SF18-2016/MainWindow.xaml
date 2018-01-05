@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_SF18_2016"
         mc:Ignorable="d"
-        Title="MainWindow" Height="526.219" Width="1042.808" WindowStartupLocation="CenterScreen">
+        Title="Salon" Height="526.219" Width="1042.808" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label x:Name="lbKorisnickoIme" Content="Korisnicko ime:" HorizontalAlignment="Left" Margin="355,180,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnPrijaviSe" Content="Prijavi se" HorizontalAlignment="Left" Margin="524,267,0,0" VerticalAlignment="Top" Width="74" Click="btnPrijaviSe_Click"/>
@@ -19,7 +19,9 @@
 
         </Menu>
         <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="364" Margin="36,54,0,0" VerticalAlignment="Top" Width="972"/>
-        <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="36,446,0,0" VerticalAlignment="Top" Width="74"/>
+        <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="36,446,0,0" VerticalAlignment="Top" Width="74" Click="btnDodaj_Click"/>
+        <Button x:Name="btnIzmeni" Content="Izmeni" HorizontalAlignment="Left" Margin="155,446,0,0" VerticalAlignment="Top" Width="75" Click="btnIzmeni_Click"/>
+        <Button x:Name="btnBrisi" Content="Brisi" HorizontalAlignment="Left" Margin="284,446,0,0" VerticalAlignment="Top" Width="75" Click="btnBrisi_Click"/>
 
     </Grid>
 </Window>

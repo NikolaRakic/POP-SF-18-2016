@@ -54,7 +54,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GUI\FrmNamestaj.xaml.cs">
+      <DependentUpon>FrmNamestaj.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmPotvrdaBrisanja.xaml.cs">
+      <DependentUpon>FrmPotvrdaBrisanja.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\GenericSerializer.cs" />
+    <Page Include="GUI\FrmNamestaj.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\FrmPotvrdaBrisanja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -111,8 +125,6 @@
   <ItemGroup>
     <Resource Include="Data\tipovi_namestaja.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GUI\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

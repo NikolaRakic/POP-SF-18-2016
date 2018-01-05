@@ -1,4 +1,5 @@
-﻿using POP_SF_18_2016.Model;
+﻿using GUI_SF18_2016.GUI;
+using POP_SF_18_2016.Model;
 using POP_SF_18_2016.Utils;
 using System;
 using System.Collections.Generic;
@@ -34,8 +35,12 @@ namespace GUI_SF18_2016
             menuPrikazProdaja.Visibility = Visibility.Hidden;
             menuPrikazKorisnika.Visibility = Visibility.Hidden;
             btnDodaj.Visibility = Visibility.Hidden;
+            btnIzmeni.Visibility = Visibility.Hidden;
+            btnBrisi.Visibility = Visibility.Hidden;
 
             listaNamestaja = new ObservableCollection<Namestaj>(GenericSerializer.Deserialize<Namestaj>("namestaj.xml"));
+
+            dataGrid.ItemsSource = listaNamestaja;
 
         }
 
@@ -53,6 +58,8 @@ namespace GUI_SF18_2016
             menuPrikazProdaja.Visibility = Visibility.Visible;
             menuPrikazKorisnika.Visibility = Visibility.Visible;
             btnDodaj.Visibility = Visibility.Visible;
+            btnIzmeni.Visibility = Visibility.Visible;
+            btnBrisi.Visibility = Visibility.Visible;
 
         }
 
@@ -71,6 +78,66 @@ namespace GUI_SF18_2016
             vrstaPrikaza = "namestaj";
             dataGrid.ItemsSource = listaNamestaja;
 
+        }
+
+        private void btnDodaj_Click(object sender, RoutedEventArgs e)
+        {
+            if (vrstaPrikaza == "namestaj") {
+                FrmNamestaj frm = new FrmNamestaj();
+                frm.ShowDialog();
+            }
+
+        }
+
+        private void btnIzmeni_Click(object sender, RoutedEventArgs e)
+        {
+            if (vrstaPrikaza == "namestaj")
+            {
+                if (dataGrid.SelectedIndex != -1 && listaNamestaja.Count > 0)
+                {
+
+                    Namestaj namestaj = (Namestaj)dataGrid.SelectedItem;
+
+                    FrmNamestaj frm = new FrmNamestaj();
+                    frm.vrstaPristupa = "izmena";
+                    frm.namestajIzmena = namestaj;
+                    frm.inicijalizujIzmenu();
+
+                    frm.Owner = this;
+                    frm.ShowDialog();
+
+                    dataGrid.Items.Refresh();
+
+                }
+            }
+        }
+
+        private void btnBrisi_Click(object sender, RoutedEventArgs e)
+        {
+            if (vrstaPrikaza == "namestaj")
+            {
+                if (dataGrid.SelectedIndex != -1 && listaNamestaja.Count > 0)
+                {
+                    Namestaj namestaj = (Namestaj)dataGrid.SelectedItem;
+
+                    FrmPotvrdaBrisanja frm = new FrmPotvrdaBrisanja();
+                    frm.ShowDialog();
+
+                    if (frm.DialogResult.HasValue && frm.DialogResult.Value)
+                    {
+                        for (int i = 0; i < listaNamestaja.Count; i++)
+                        {
+                            if (listaNamestaja.ElementAt(i).Id == namestaj.Id)
+                            {
+                                listaNamestaja.ElementAt(i).obrisan = true; //logicko brisanje
+                                //listaNamestaja.RemoveAt(i);
+                            }
+                        }
+
+                        dataGrid.Items.Refresh();
+                    }
+                }
+            }
         }
     }
 }
