@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_SF18_2016"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="526.219" Width="1042.808" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Label x:Name="lbKorisnickoIme" Content="Korisnicko ime:" HorizontalAlignment="Left" Margin="355,180,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnPrijaviSe" Content="Prijavi se" HorizontalAlignment="Left" Margin="524,267,0,0" VerticalAlignment="Top" Width="74" Click="btnPrijaviSe_Click"/>
+        <TextBox x:Name="tbKorisnickoIme" HorizontalAlignment="Left" Height="23" Margin="450,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148"/>
+        <Label x:Name="lbLozinka" Content="Lozinka:" HorizontalAlignment="Left" Margin="393,218,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbLozinka" HorizontalAlignment="Left" Height="23" Margin="450,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148"/>
+        <Menu HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="1035" Name="glavniMenu">
+            <MenuItem Header="Prikaz namestaja" Click="mniPrikazNamestaja" Name="menuPrikazNamestaja" />
+            <MenuItem Header="Prikaz prodaja" Click="mniPrikazProdaja" Name="menuPrikazProdaja" />
+            <MenuItem Header="Prikaz korisnika" Click="mniPrikazKorisnika" Name="menuPrikazKorisnika" />
+
+        </Menu>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="364" Margin="36,54,0,0" VerticalAlignment="Top" Width="972"/>
+        <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="36,446,0,0" VerticalAlignment="Top" Width="74"/>
+
     </Grid>
 </Window>

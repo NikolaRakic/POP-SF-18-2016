@@ -12,3 +12,17 @@ C:\Users\Aleksandar\Downloads\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI_
 C:\Users\Aleksandar\Downloads\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI_SF18-2016.csproj.GenerateResource.Cache
 C:\Users\Aleksandar\Downloads\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI_SF18-2016.exe
 C:\Users\Aleksandar\Downloads\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI_SF18-2016.pdb
+C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\bin\Debug\GUI_SF18-2016.exe.config
+C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\bin\Debug\GUI_SF18-2016.exe
+C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\bin\Debug\GUI_SF18-2016.pdb
+C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI_SF18-2016.csprojResolveAssemblyReference.cache
+C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\MainWindow.g.cs
+C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\App.g.cs
+C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI_SF18-2016_MarkupCompile.cache
+C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI_SF18-2016_MarkupCompile.lref
+C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\MainWindow.baml
+C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI_SF18-2016.g.resources
+C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI_SF18_2016.Properties.Resources.resources
+C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI_SF18-2016.csproj.GenerateResource.Cache
+C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI_SF18-2016.exe
+C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI_SF18-2016.pdb
