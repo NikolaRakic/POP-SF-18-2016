@@ -29,8 +29,8 @@ C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI\Fr
 C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI\FrmNamestaj.baml
 C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI\FrmPotvrdaBrisanja.g.cs
 C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI\FrmPotvrdaBrisanja.baml
-C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI_SF18-2016.csprojResolveAssemblyReference.cache
 C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI\FrmKorisnik.g.cs
 C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI\FrmKorisnik.baml
 C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI\FrmAkcija.g.cs
 C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI\FrmAkcija.baml
+C:\Users\Aleksandar\Desktop\POP-SF-18-2016-master\GUI_SF18-2016\obj\Debug\GUI_SF18-2016.csprojResolveAssemblyReference.cache

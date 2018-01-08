@@ -34,23 +34,29 @@ namespace GUI_SF18_2016.GUI
             listaTipova = GenericSerializer.Deserialize<TipNamestaja>("tipovi_namestaja.xml");
             //listaAkcija = GenericSerializer.Deserialize<Akcija>("akcije.xml");
 
-            foreach (TipNamestaja tipNam in listaTipova) {
-
-                cbTipID.Items.Add(tipNam.Id);
-            }
             if (listaTipova.Count > 0)
-                lbTipNamestajaNaziv.Content = listaTipova.ElementAt(0).Naziv;
-
-            
-            /*
-            foreach (Akcija akcija in listaAkcija)
             {
+                foreach (TipNamestaja tipNam in listaTipova)
+                {
 
-                cbAkcijaID.Items.Add(akcija.Id);
+                    cbTipID.Items.Add(tipNam.Id);
+                }
+                cbTipID.SelectedIndex = 0;
+                lbTipNamestajaNaziv.Content = listaTipova.ElementAt(0).Naziv;
             }
-            if (listaAkcija.Count > 0)
-                lbAkcijaPopust.Content = listaAkcija.ElementAt(0).Popust;
-                */
+
+
+            cbAkcijaID.Items.Add(0);
+            cbAkcijaID.SelectedIndex = 0;
+            lbAkcijaPopust.Content = "0 %";
+            if (MainWindow.listaAkcija.Count > 0)
+            {
+                foreach (Akcija akcija in MainWindow.listaAkcija)
+                {
+                    cbAkcijaID.Items.Add(akcija.Id);
+                }
+ 
+            }
         }
 
         public void inicijalizujIzmenu() {
@@ -69,7 +75,29 @@ namespace GUI_SF18_2016.GUI
 
         private void cbTipID_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            lbTipNamestajaNaziv.Content = cbTipID.SelectedItem.ToString();
+            foreach (TipNamestaja tip in listaTipova) {
+
+                if (tip.Id == Convert.ToInt32(cbTipID.SelectedItem.ToString()))
+                    lbTipNamestajaNaziv.Content = tip.Naziv;
+
+            }
+            
+        }
+
+        private void cbAkcijaID_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbAkcijaID.SelectedItem.ToString() != "0")
+            {
+                foreach (Akcija akc in MainWindow.listaAkcija)
+                {
+                    if (akc.Id == Convert.ToInt32(cbAkcijaID.SelectedItem.ToString()))
+                        lbAkcijaPopust.Content = akc.Popust.ToString() + " %";
+                }
+
+            }
+            else {
+                lbAkcijaPopust.Content = "0 %";
+            }
         }
 
         private void btnIzadji_Click(object sender, RoutedEventArgs e)
@@ -123,6 +151,7 @@ namespace GUI_SF18_2016.GUI
 
 
         }
+
 
     }
 }

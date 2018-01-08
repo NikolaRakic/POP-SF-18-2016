@@ -27,6 +27,18 @@ namespace POP_SF_18_2016.Model
         public TipKorisnika tip; 
         public bool obrisan;
 
+        public Korisnik() { }
+        public Korisnik(int id, string ime, string prezime, string korisnickoIme, string lozinka, TipKorisnika tip, bool obrisan)
+        {
+            this.id = id;
+            this.ime = ime;
+            this.prezime = prezime;
+            this.korisnickoIme = korisnickoIme;
+            this.lozinka = lozinka;
+            this.tip = tip;
+            this.obrisan = obrisan;
+        }
+
         public int Id { get { return id; } set { if (value != id) { id = value; OnPropertyChanged("Id"); } } }
         public string Ime { get { return ime; } set { if (value != ime) { ime = value; OnPropertyChanged("Ime"); } } }
         public string Prezime { get { return prezime; } set { if (value != prezime) { prezime = value; OnPropertyChanged("Prezime"); } } }

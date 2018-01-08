@@ -41,10 +41,16 @@ namespace GUI_SF18_2016
             btnDodaj.Visibility = Visibility.Hidden;
             btnIzmeni.Visibility = Visibility.Hidden;
             btnBrisi.Visibility = Visibility.Hidden;
+            btnOdjava.Visibility = Visibility.Hidden;
 
             listaNamestaja = new ObservableCollection<Namestaj>(GenericSerializer.Deserialize<Namestaj>("namestaj.xml"));
             listaAkcija = new ObservableCollection<Akcija>();
             listaKorisnika = new ObservableCollection<Korisnik>();
+
+
+            listaKorisnika.Add(new Korisnik(1, "Petar", "Petrovic", "admin", "admin", TipKorisnika.Administrator, false));
+            listaKorisnika.Add(new Korisnik(2, "Slavoljub", "Slavoljubovic", "prod", "prod", TipKorisnika.Prodavac, false));
+
 
             dataGrid.ItemsSource = listaNamestaja;
 
@@ -52,20 +58,60 @@ namespace GUI_SF18_2016
 
         private void btnPrijaviSe_Click(object sender, RoutedEventArgs e)
         {
-            lbKorisnickoIme.Visibility = Visibility.Hidden;
-            tbKorisnickoIme.Visibility = Visibility.Hidden;
-            lbLozinka.Visibility = Visibility.Hidden;
-            tbLozinka.Visibility = Visibility.Hidden;
-            btnPrijaviSe.Visibility = Visibility.Hidden;
 
-            dataGrid.Visibility = Visibility.Visible;
-            glavniMenu.Visibility = Visibility.Visible;
-            menuPrikazNamestaja.Visibility = Visibility.Visible;
-            menuPrikazProdaja.Visibility = Visibility.Visible;
-            menuPrikazKorisnika.Visibility = Visibility.Visible;
-            btnDodaj.Visibility = Visibility.Visible;
-            btnIzmeni.Visibility = Visibility.Visible;
-            btnBrisi.Visibility = Visibility.Visible;
+            bool postoji = false;
+            TipKorisnika tip = TipKorisnika.Prodavac;
+            foreach (Korisnik k in listaKorisnika) {
+
+                if (k.KorisnickoIme == tbKorisnickoIme.Text && k.Lozinka == tbLozinka.Text)
+                {
+                    postoji = true;
+                    if (k.Tip == TipKorisnika.Administrator)
+                        tip = TipKorisnika.Administrator;
+                }
+            }
+
+            if (postoji && tip==TipKorisnika.Administrator)
+            {
+                lbKorisnickoIme.Visibility = Visibility.Hidden;
+                tbKorisnickoIme.Visibility = Visibility.Hidden;
+                lbLozinka.Visibility = Visibility.Hidden;
+                tbLozinka.Visibility = Visibility.Hidden;
+                btnPrijaviSe.Visibility = Visibility.Hidden;
+
+                dataGrid.Visibility = Visibility.Visible;
+                glavniMenu.Visibility = Visibility.Visible;
+                menuPrikazNamestaja.Visibility = Visibility.Visible;
+                menuPrikazAkcija.Visibility = Visibility.Visible;
+                menuPrikazProdaja.Visibility = Visibility.Visible;
+                menuPrikazKorisnika.Visibility = Visibility.Visible;
+                btnDodaj.Visibility = Visibility.Visible;
+                btnIzmeni.Visibility = Visibility.Visible;
+                btnBrisi.Visibility = Visibility.Visible;
+                btnOdjava.Visibility = Visibility.Visible;
+            }
+            else if (postoji && tip == TipKorisnika.Prodavac)
+            {
+                lbKorisnickoIme.Visibility = Visibility.Hidden;
+                tbKorisnickoIme.Visibility = Visibility.Hidden;
+                lbLozinka.Visibility = Visibility.Hidden;
+                tbLozinka.Visibility = Visibility.Hidden;
+                btnPrijaviSe.Visibility = Visibility.Hidden;
+
+                dataGrid.Visibility = Visibility.Visible;
+                glavniMenu.Visibility = Visibility.Visible;
+                menuPrikazNamestaja.Visibility = Visibility.Visible;
+                menuPrikazAkcija.Visibility = Visibility.Hidden;
+                menuPrikazProdaja.Visibility = Visibility.Visible;
+                menuPrikazKorisnika.Visibility = Visibility.Hidden;
+                btnDodaj.Visibility = Visibility.Hidden;
+                btnIzmeni.Visibility = Visibility.Hidden;
+                btnBrisi.Visibility = Visibility.Hidden;
+                btnOdjava.Visibility = Visibility.Visible;
+            }
+            else {
+                MessageBox.Show("Pogresno korisnicko ime/sifra");
+            }
 
         }
 
@@ -247,6 +293,27 @@ namespace GUI_SF18_2016
             }
         }
 
+        private void btnOdjava_Click(object sender, RoutedEventArgs e)
+        {
+            lbKorisnickoIme.Visibility = Visibility.Visible;
+            tbKorisnickoIme.Visibility = Visibility.Visible;
+            lbLozinka.Visibility = Visibility.Visible;
+            tbLozinka.Visibility = Visibility.Visible;
+            btnPrijaviSe.Visibility = Visibility.Visible;
 
+            dataGrid.Visibility = Visibility.Hidden;
+            glavniMenu.Visibility = Visibility.Hidden;
+            menuPrikazNamestaja.Visibility = Visibility.Hidden;
+            menuPrikazAkcija.Visibility = Visibility.Hidden;
+            menuPrikazProdaja.Visibility = Visibility.Hidden;
+            menuPrikazKorisnika.Visibility = Visibility.Hidden;
+            btnDodaj.Visibility = Visibility.Hidden;
+            btnIzmeni.Visibility = Visibility.Hidden;
+            btnBrisi.Visibility = Visibility.Hidden;
+            btnOdjava.Visibility = Visibility.Hidden;
+
+            tbKorisnickoIme.Text = "";
+            tbLozinka.Text = "";
+        }
     }
 }
