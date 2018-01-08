@@ -66,6 +66,9 @@
     <Compile Include="GUI\FrmPotvrdaBrisanja.xaml.cs">
       <DependentUpon>FrmPotvrdaBrisanja.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmProdaja.xaml.cs">
+      <DependentUpon>FrmProdaja.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\GenericSerializer.cs" />
     <Page Include="GUI\FrmAkcija.xaml">
       <SubType>Designer</SubType>
@@ -80,6 +83,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\FrmPotvrdaBrisanja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\FrmProdaja.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

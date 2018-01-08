@@ -25,6 +25,7 @@ namespace GUI_SF18_2016
     public partial class MainWindow : Window
     {
         public string vrstaPrikaza = "namestaj";
+        public static ObservableCollection<Prodaja> listaProdaja;
         public static ObservableCollection<Namestaj> listaNamestaja;
         public static ObservableCollection<Akcija> listaAkcija;
         public static ObservableCollection<Korisnik> listaKorisnika;
@@ -43,6 +44,7 @@ namespace GUI_SF18_2016
             btnBrisi.Visibility = Visibility.Hidden;
             btnOdjava.Visibility = Visibility.Hidden;
 
+            listaProdaja = new ObservableCollection<Prodaja>();
             listaNamestaja = new ObservableCollection<Namestaj>(GenericSerializer.Deserialize<Namestaj>("namestaj.xml"));
             listaAkcija = new ObservableCollection<Akcija>();
             listaKorisnika = new ObservableCollection<Korisnik>();
@@ -73,6 +75,9 @@ namespace GUI_SF18_2016
 
             if (postoji && tip==TipKorisnika.Administrator)
             {
+                vrstaPrikaza = "namestaj";
+                dataGrid.ItemsSource = listaNamestaja;
+
                 lbKorisnickoIme.Visibility = Visibility.Hidden;
                 tbKorisnickoIme.Visibility = Visibility.Hidden;
                 lbLozinka.Visibility = Visibility.Hidden;
@@ -83,7 +88,7 @@ namespace GUI_SF18_2016
                 glavniMenu.Visibility = Visibility.Visible;
                 menuPrikazNamestaja.Visibility = Visibility.Visible;
                 menuPrikazAkcija.Visibility = Visibility.Visible;
-                menuPrikazProdaja.Visibility = Visibility.Visible;
+                menuPrikazProdaja.Visibility = Visibility.Hidden;
                 menuPrikazKorisnika.Visibility = Visibility.Visible;
                 btnDodaj.Visibility = Visibility.Visible;
                 btnIzmeni.Visibility = Visibility.Visible;
@@ -92,6 +97,9 @@ namespace GUI_SF18_2016
             }
             else if (postoji && tip == TipKorisnika.Prodavac)
             {
+                vrstaPrikaza = "prodaja";
+                dataGrid.ItemsSource = listaProdaja;
+
                 lbKorisnickoIme.Visibility = Visibility.Hidden;
                 tbKorisnickoIme.Visibility = Visibility.Hidden;
                 lbLozinka.Visibility = Visibility.Hidden;
@@ -100,13 +108,13 @@ namespace GUI_SF18_2016
 
                 dataGrid.Visibility = Visibility.Visible;
                 glavniMenu.Visibility = Visibility.Visible;
-                menuPrikazNamestaja.Visibility = Visibility.Visible;
+                menuPrikazNamestaja.Visibility = Visibility.Hidden;
                 menuPrikazAkcija.Visibility = Visibility.Hidden;
                 menuPrikazProdaja.Visibility = Visibility.Visible;
                 menuPrikazKorisnika.Visibility = Visibility.Hidden;
-                btnDodaj.Visibility = Visibility.Hidden;
-                btnIzmeni.Visibility = Visibility.Hidden;
-                btnBrisi.Visibility = Visibility.Hidden;
+                btnDodaj.Visibility = Visibility.Visible;
+                btnIzmeni.Visibility = Visibility.Visible;
+                btnBrisi.Visibility = Visibility.Visible;
                 btnOdjava.Visibility = Visibility.Visible;
             }
             else {
@@ -117,7 +125,8 @@ namespace GUI_SF18_2016
 
         private void mniPrikazProdaja(object sender, RoutedEventArgs e)
         {
-
+            vrstaPrikaza = "prodaja";
+            dataGrid.ItemsSource = listaProdaja;
         }
 
         private void mniPrikazKorisnika(object sender, RoutedEventArgs e)
@@ -140,6 +149,12 @@ namespace GUI_SF18_2016
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
+            if (vrstaPrikaza == "prodaja")
+            {
+                FrmProdaja frm = new FrmProdaja();
+                frm.ShowDialog();
+            }
+
             if (vrstaPrikaza == "namestaj") {
                 FrmNamestaj frm = new FrmNamestaj();
                 frm.ShowDialog();
@@ -160,6 +175,26 @@ namespace GUI_SF18_2016
 
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)
         {
+
+            if (vrstaPrikaza == "prodaja")
+            {
+                if (dataGrid.SelectedIndex != -1 && listaProdaja.Count > 0)
+                {
+
+                    Prodaja prodaja = (Prodaja)dataGrid.SelectedItem;
+
+                    FrmProdaja frm = new FrmProdaja();
+                    frm.vrstaPristupa = "izmena";
+                    frm.prodajaIzmena = prodaja;
+                    frm.inicijalizujIzmenu();
+
+                    frm.Owner = this;
+                    frm.ShowDialog();
+
+
+                }
+            }
+
             if (vrstaPrikaza == "namestaj")
             {
                 if (dataGrid.SelectedIndex != -1 && listaNamestaja.Count > 0)
@@ -220,6 +255,31 @@ namespace GUI_SF18_2016
 
         private void btnBrisi_Click(object sender, RoutedEventArgs e)
         {
+
+            if (vrstaPrikaza == "prodaja")
+            {
+                if (dataGrid.SelectedIndex != -1 && listaProdaja.Count > 0)
+                {
+                    Prodaja prodaja = (Prodaja)dataGrid.SelectedItem;
+
+                    FrmPotvrdaBrisanja frm = new FrmPotvrdaBrisanja();
+                    frm.ShowDialog();
+
+                    if (frm.DialogResult.HasValue && frm.DialogResult.Value)
+                    {
+                        for (int i = 0; i < listaProdaja.Count; i++)
+                        {
+                            if (listaProdaja.ElementAt(i).Id == prodaja.Id)
+                            {
+                                listaProdaja.ElementAt(i).Obrisana = true; //logicko brisanje
+                                dataGrid.Items.Refresh();
+                            }
+                        }
+
+                    }
+                }
+            }
+
             if (vrstaPrikaza == "namestaj")
             {
                 if (dataGrid.SelectedIndex != -1 && listaNamestaja.Count > 0)
