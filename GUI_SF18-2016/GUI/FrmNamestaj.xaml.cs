@@ -25,12 +25,14 @@ namespace GUI_SF18_2016.GUI
         public Namestaj namestajIzmena = null;
 
         public List<TipNamestaja> listaTipova;
+        public List<Akcija> listaAkcija;
 
         public FrmNamestaj()
         {
             InitializeComponent();
 
             listaTipova = GenericSerializer.Deserialize<TipNamestaja>("tipovi_namestaja.xml");
+            //listaAkcija = GenericSerializer.Deserialize<Akcija>("akcije.xml");
 
             foreach (TipNamestaja tipNam in listaTipova) {
 
@@ -39,6 +41,16 @@ namespace GUI_SF18_2016.GUI
             if (listaTipova.Count > 0)
                 lbTipNamestajaNaziv.Content = listaTipova.ElementAt(0).Naziv;
 
+            
+            /*
+            foreach (Akcija akcija in listaAkcija)
+            {
+
+                cbAkcijaID.Items.Add(akcija.Id);
+            }
+            if (listaAkcija.Count > 0)
+                lbAkcijaPopust.Content = listaAkcija.ElementAt(0).Popust;
+                */
         }
 
         public void inicijalizujIzmenu() {

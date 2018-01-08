@@ -54,6 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GUI\FrmKorisnik.xaml.cs">
+      <DependentUpon>FrmKorisnik.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmNamestaj.xaml.cs">
       <DependentUpon>FrmNamestaj.xaml</DependentUpon>
     </Compile>
@@ -61,6 +64,10 @@
       <DependentUpon>FrmPotvrdaBrisanja.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\GenericSerializer.cs" />
+    <Page Include="GUI\FrmKorisnik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\FrmNamestaj.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,8 +130,17 @@
     <Resource Include="Data\salon.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\tipovi_namestaja.xml" />
+    <Resource Include="Data\tipovi_namestaja.xml">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Data\dodatne_usluge.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\akcije.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
