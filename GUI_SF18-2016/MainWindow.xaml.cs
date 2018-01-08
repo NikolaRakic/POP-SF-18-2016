@@ -26,10 +26,13 @@ namespace GUI_SF18_2016
     {
         public string vrstaPrikaza = "namestaj";
         public static ObservableCollection<Namestaj> listaNamestaja;
+        public static ObservableCollection<Akcija> listaAkcija;
         public static ObservableCollection<Korisnik> listaKorisnika;
+
         public MainWindow()
         {
             InitializeComponent();
+
             dataGrid.Visibility = Visibility.Hidden;
             glavniMenu.Visibility = Visibility.Hidden;
             menuPrikazNamestaja.Visibility = Visibility.Hidden;
@@ -40,6 +43,7 @@ namespace GUI_SF18_2016
             btnBrisi.Visibility = Visibility.Hidden;
 
             listaNamestaja = new ObservableCollection<Namestaj>(GenericSerializer.Deserialize<Namestaj>("namestaj.xml"));
+            listaAkcija = new ObservableCollection<Akcija>();
             listaKorisnika = new ObservableCollection<Korisnik>();
 
             dataGrid.ItemsSource = listaNamestaja;
@@ -82,6 +86,11 @@ namespace GUI_SF18_2016
             dataGrid.ItemsSource = listaNamestaja;
 
         }
+        private void mniPrikazAkcija(object sender, RoutedEventArgs e)
+        {
+            vrstaPrikaza = "akcija";
+            dataGrid.ItemsSource = listaAkcija;
+        }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
@@ -89,6 +98,12 @@ namespace GUI_SF18_2016
                 FrmNamestaj frm = new FrmNamestaj();
                 frm.ShowDialog();
             }
+            if (vrstaPrikaza == "akcija")
+            {
+                FrmAkcija frm = new FrmAkcija();
+                frm.ShowDialog();
+            }
+
             if (vrstaPrikaza == "korisnik")
             {
                 FrmKorisnik frm = new FrmKorisnik();
@@ -114,7 +129,25 @@ namespace GUI_SF18_2016
                     frm.Owner = this;
                     frm.ShowDialog();
 
-                    dataGrid.Items.Refresh();
+
+                }
+            }
+
+            if (vrstaPrikaza == "akcija")
+            {
+                if (dataGrid.SelectedIndex != -1 && listaAkcija.Count > 0)
+                {
+
+                    Akcija akcija = (Akcija)dataGrid.SelectedItem;
+
+                    FrmAkcija frm = new FrmAkcija();
+                    frm.vrstaPristupa = "izmena";
+                    frm.akcijaIzmena = akcija;
+                    frm.inicijalizujIzmenu();
+
+                    frm.Owner = this;
+                    frm.ShowDialog();
+
 
                 }
             }
@@ -134,7 +167,6 @@ namespace GUI_SF18_2016
                     frm.Owner = this;
                     frm.ShowDialog();
 
-                    dataGrid.Items.Refresh();
 
                 }
             }
@@ -158,11 +190,34 @@ namespace GUI_SF18_2016
                             if (listaNamestaja.ElementAt(i).Id == namestaj.Id)
                             {
                                 listaNamestaja.ElementAt(i).obrisan = true; //logicko brisanje
-                                //listaNamestaja.RemoveAt(i);
+                                dataGrid.Items.Refresh();
                             }
                         }
 
-                        dataGrid.Items.Refresh();
+                    }
+                }
+            }
+
+            if (vrstaPrikaza == "akcija")
+            {
+                if (dataGrid.SelectedIndex != -1 && listaAkcija.Count > 0)
+                {
+                    Akcija akcija = (Akcija)dataGrid.SelectedItem;
+
+                    FrmPotvrdaBrisanja frm = new FrmPotvrdaBrisanja();
+                    frm.ShowDialog();
+
+                    if (frm.DialogResult.HasValue && frm.DialogResult.Value)
+                    {
+                        for (int i = 0; i < listaAkcija.Count; i++)
+                        {
+                            if (listaAkcija.ElementAt(i).Id == akcija.Id)
+                            {
+                                listaAkcija.ElementAt(i).Obrisana = true;
+                                dataGrid.Items.Refresh();
+                            }
+                        }
+
                     }
                 }
             }
@@ -182,14 +237,16 @@ namespace GUI_SF18_2016
                         {
                             if (listaKorisnika.ElementAt(i).Id == korisnik.Id)
                             {
-                                listaKorisnika.ElementAt(i).obrisan = true; 
+                                listaKorisnika.ElementAt(i).obrisan = true;
+                                dataGrid.Items.Refresh();
                             }
                         }
 
-                        dataGrid.Items.Refresh();
                     }
                 }
             }
         }
+
+
     }
 }

@@ -13,8 +13,9 @@
         <Label x:Name="lbLozinka" Content="Lozinka:" HorizontalAlignment="Left" Margin="393,218,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbLozinka" HorizontalAlignment="Left" Height="23" Margin="450,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148"/>
         <Menu HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="1035" Name="glavniMenu">
-            <MenuItem Header="Prikaz namestaja" Click="mniPrikazNamestaja" Name="menuPrikazNamestaja" />
             <MenuItem Header="Prikaz prodaja" Click="mniPrikazProdaja" Name="menuPrikazProdaja" />
+            <MenuItem Header="Prikaz namestaja" Click="mniPrikazNamestaja" Name="menuPrikazNamestaja" />
+            <MenuItem Header="Prikaz akcija" Click="mniPrikazAkcija" Name="menuPrikazAkcija" />
             <MenuItem Header="Prikaz korisnika" Click="mniPrikazKorisnika" Name="menuPrikazKorisnika" />
 
         </Menu>
