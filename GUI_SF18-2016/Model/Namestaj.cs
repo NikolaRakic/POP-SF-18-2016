@@ -18,6 +18,20 @@ namespace POP_SF_18_2016.Model
         public int tipNamestajaID;
         public bool obrisan;
 
+        public Namestaj(int id, string naziv, string sifra, double cena, int kolicinaUMagacinu, int akcijaID, int tipNamestajaID, bool obrisan)
+        {
+            this.id = id;
+            this.naziv = naziv;
+            this.sifra = sifra;
+            this.cena = cena;
+            this.kolicinaUMagacinu = kolicinaUMagacinu;
+            this.akcijaID = akcijaID;
+            this.tipNamestajaID = tipNamestajaID;
+            this.obrisan = obrisan;
+        }
+
+        public Namestaj() { }
+
         public int Id{ get { return id; } set { if (value != id) { id = value; OnPropertyChanged("Id"); } } }
         public string Naziv { get { return naziv; } set { if (value != naziv) { naziv = value; OnPropertyChanged("Naziv"); } } }
         public string Sifra { get { return sifra; } set { if (value != sifra) { sifra = value; OnPropertyChanged("Sifra"); } } }

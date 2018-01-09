@@ -1,4 +1,5 @@
-﻿using POP_SF_18_2016.Model;
+﻿using GUI_SF18_2016.Model;
+using POP_SF_18_2016.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -103,6 +104,14 @@ namespace GUI_SF18_2016.GUI
                         prodaja.Kupac = tbKupac.Text;
                         prodaja.UkupnaCena = ukupnaCena;
 
+                        UpravljanjeBazomPodataka.dodajPodatakUTabelu(
+                           "update Prodaja set idNamestaj='"
+                           + prodaja.idNamestaj + "', datumProdaje='"
+                           + prodaja.DatumProdaje + "', brojRacuna='"
+                           + prodaja.BrojRacuna + "', kupac='"
+                           + prodaja.Kupac + "', ukupnaCena='"
+                           + prodaja.UkupnaCena + "'where id='" + prodaja.Id + "';");
+
                     }
                 }
             }
@@ -128,6 +137,16 @@ namespace GUI_SF18_2016.GUI
                 lbUkupnaCena.Content = "Ukupna cena: " + ukupnaCena;
 
                 MainWindow.listaProdaja.Add(novaProdaja);
+
+                UpravljanjeBazomPodataka.dodajPodatakUTabelu(
+                    "insert into Prodaja(id,idNamestaj,datumProdaje,brojRacuna,kupac,ukupnaCena,obrisana) values('"
+                    + novaProdaja.Id + "','"
+                    + novaProdaja.idNamestaj + "','"
+                    + novaProdaja.DatumProdaje + "','"
+                    + novaProdaja.BrojRacuna + "','"
+                    + novaProdaja.Kupac + "','"
+                    + novaProdaja.UkupnaCena + "','"
+                    + novaProdaja.Obrisana + "');");
             }
 
             //this.Close();

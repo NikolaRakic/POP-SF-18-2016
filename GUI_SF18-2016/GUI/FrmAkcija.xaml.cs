@@ -1,4 +1,5 @@
-﻿using POP_SF_18_2016.Model;
+﻿using GUI_SF18_2016.Model;
+using POP_SF_18_2016.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,6 +61,12 @@ namespace GUI_SF18_2016.GUI
                         akcija.Popust = Convert.ToDouble(tbPopust.Text);
                         akcija.DatumZavrsetka = dtKraj.SelectedDate.Value;
 
+                        UpravljanjeBazomPodataka.dodajPodatakUTabelu(
+                           "update Akcija set datumPocetka='"
+                           + akcija.DatumPocetka + "', popust='"
+                           + akcija.Popust + "', datumZavrsetka='"
+                           + akcija.DatumZavrsetka +  "'where id='" + akcija.Id + "';");
+
                     }
                 }
             }
@@ -82,6 +89,14 @@ namespace GUI_SF18_2016.GUI
                
 
                 MainWindow.listaAkcija.Add(novaAkcija);
+
+                UpravljanjeBazomPodataka.dodajPodatakUTabelu(
+                   "insert into Akcija(id,datumPocetka,popust,datumZavrsetka,obrisana) values('"
+                   + novaAkcija.Id + "','"
+                   + novaAkcija.DatumPocetka + "','"
+                   + novaAkcija.Popust + "','"
+                   + novaAkcija.DatumZavrsetka + "','"
+                   + novaAkcija.Obrisana + "');");
             }
 
 

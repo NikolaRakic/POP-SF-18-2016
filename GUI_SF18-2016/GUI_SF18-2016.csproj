@@ -69,6 +69,7 @@
     <Compile Include="GUI\FrmProdaja.xaml.cs">
       <DependentUpon>FrmProdaja.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\UpravljanjeBazomPodataka.cs" />
     <Compile Include="Utils\GenericSerializer.cs" />
     <Page Include="GUI\FrmAkcija.xaml">
       <SubType>Designer</SubType>

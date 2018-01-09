@@ -1,4 +1,5 @@
 ﻿using GUI_SF18_2016.GUI;
+using GUI_SF18_2016.Model;
 using POP_SF_18_2016.Model;
 using POP_SF_18_2016.Utils;
 using System;
@@ -44,9 +45,16 @@ namespace GUI_SF18_2016
             btnBrisi.Visibility = Visibility.Hidden;
             btnOdjava.Visibility = Visibility.Hidden;
 
+            /*
             listaProdaja = new ObservableCollection<Prodaja>();
             listaNamestaja = new ObservableCollection<Namestaj>(GenericSerializer.Deserialize<Namestaj>("namestaj.xml"));
             listaAkcija = new ObservableCollection<Akcija>();
+            */
+
+            listaAkcija = UpravljanjeBazomPodataka.ucitajAkcije();
+            listaNamestaja = UpravljanjeBazomPodataka.ucitajNamestaje();
+            listaProdaja = UpravljanjeBazomPodataka.ucitajProdaje();
+
             listaKorisnika = new ObservableCollection<Korisnik>();
 
 
@@ -273,6 +281,8 @@ namespace GUI_SF18_2016
                             {
                                 listaProdaja.ElementAt(i).Obrisana = true; //logicko brisanje
                                 dataGrid.Items.Refresh();
+
+                                UpravljanjeBazomPodataka.dodajPodatakUTabelu("update Prodaja set obrisana='true' where id='" + listaProdaja.ElementAt(i).Id + "';");
                             }
                         }
 
@@ -297,6 +307,8 @@ namespace GUI_SF18_2016
                             {
                                 listaNamestaja.ElementAt(i).obrisan = true; //logicko brisanje
                                 dataGrid.Items.Refresh();
+
+                                UpravljanjeBazomPodataka.dodajPodatakUTabelu("update Namestaj set obrisan='true' where id='" + listaNamestaja.ElementAt(i).Id + "';");
                             }
                         }
 
@@ -321,6 +333,8 @@ namespace GUI_SF18_2016
                             {
                                 listaAkcija.ElementAt(i).Obrisana = true;
                                 dataGrid.Items.Refresh();
+
+                                UpravljanjeBazomPodataka.dodajPodatakUTabelu("update Akcija set obrisana='true' where id='" + listaAkcija.ElementAt(i).Id + "';");
                             }
                         }
 

@@ -17,6 +17,19 @@ namespace POP_SF_18_2016.Model
         public double ukupnaCena;
         public bool obrisana;
 
+        public Prodaja(int id, int idNamestaj, DateTime datumProdaje, string brojRacuna, string kupac, double ukupnaCena, bool obrisana)
+        {
+            this.id = id;
+            this.idNamestaj = idNamestaj;
+            this.datumProdaje = datumProdaje;
+            this.brojRacuna = brojRacuna;
+            this.kupac = kupac;
+            this.ukupnaCena = ukupnaCena;
+            this.obrisana = obrisana;
+        }
+
+        public Prodaja() { }
+
         public int Id { get { return id; } set { if (value != id) { id = value; OnPropertyChanged("Id"); } } }
         public int IdNamestaj { get { return idNamestaj; } set { if (value != idNamestaj) { idNamestaj = value; OnPropertyChanged("IdNamestaj"); } } }
         public DateTime DatumProdaje { get { return datumProdaje; } set { if (value != datumProdaje) { datumProdaje = value; OnPropertyChanged("DatumProdaje"); } } }

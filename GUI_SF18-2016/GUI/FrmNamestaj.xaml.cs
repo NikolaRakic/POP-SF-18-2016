@@ -1,4 +1,5 @@
-﻿using POP_SF_18_2016.Model;
+﻿using GUI_SF18_2016.Model;
+using POP_SF_18_2016.Model;
 using POP_SF_18_2016.Utils;
 using System;
 using System.Collections.Generic;
@@ -121,6 +122,14 @@ namespace GUI_SF18_2016.GUI
                         //namestaj.AkcijaID = Convert.ToInt32(cbAkcijaID.SelectedItem.ToString());
                         namestaj.TipNamestajaID = Convert.ToInt32(cbTipID.SelectedItem.ToString());
 
+                        UpravljanjeBazomPodataka.dodajPodatakUTabelu(
+                           "update Namestaj set naziv='"
+                           + namestaj.Naziv + "', sifra='"
+                           + namestaj.Sifra + "', cena='"
+                           + namestaj.Cena + "', KolicinaUMagacinu='"
+                           + namestaj.KolicinaUMagacinu + "', tipNamestajaID='"
+                           + namestaj.TipNamestajaID + "'where id='" + namestaj.Id + "';");
+
                     }
                 }
             }
@@ -145,6 +154,17 @@ namespace GUI_SF18_2016.GUI
                 noviNamestaj.Obrisan = false;
 
                 MainWindow.listaNamestaja.Add(noviNamestaj);
+
+                UpravljanjeBazomPodataka.dodajPodatakUTabelu(
+                    "insert into Namestaj(id,naziv,sifra,cena,kolicinaUMagacinu,akcijaId,tipNamestajaId,obrisan) values('"
+                    + noviNamestaj.Id + "','"
+                    + noviNamestaj.Naziv + "','"
+                    + noviNamestaj.Sifra + "','"
+                    + noviNamestaj.Cena + "','"
+                    + noviNamestaj.KolicinaUMagacinu + "','"
+                    + noviNamestaj.AkcijaID + "','"
+                    + noviNamestaj.TipNamestajaID + "','"
+                    + noviNamestaj.Obrisan + "');");
             }
 
             this.Close();

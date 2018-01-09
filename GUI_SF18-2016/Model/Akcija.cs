@@ -16,6 +16,17 @@ namespace POP_SF_18_2016.Model
         public DateTime datumZavrsetka;
         public bool obrisana;
 
+        public Akcija(int id, DateTime datumPocetka, double popust, DateTime datumZavrsetka, bool obrisana)
+        {
+            this.id = id;
+            this.datumPocetka = datumPocetka;
+            this.popust = popust;
+            this.datumZavrsetka = datumZavrsetka;
+            this.obrisana = obrisana;
+        }
+
+        public Akcija() { }
+
         public int Id { get { return id; } set { if (value != id) { id = value; OnPropertyChanged("Id"); } } }
         public DateTime DatumPocetka { get { return datumPocetka; } set { if (value != datumPocetka) { datumPocetka = value; OnPropertyChanged("DatumPocetka"); } } }
         public double Popust { get { return popust; } set { if (value != popust) { popust = value; OnPropertyChanged("Popust"); } } }
