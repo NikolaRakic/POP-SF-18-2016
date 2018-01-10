@@ -39,8 +39,8 @@ namespace GUI_SF18_2016.GUI
             {
                 foreach (TipNamestaja tipNam in listaTipova)
                 {
-
-                    cbTipID.Items.Add(tipNam.Id);
+                    if(!tipNam.Obrisan)
+                        cbTipID.Items.Add(tipNam.Id);
                 }
                 cbTipID.SelectedIndex = 0;
                 lbTipNamestajaNaziv.Content = listaTipova.ElementAt(0).Naziv;
@@ -54,7 +54,8 @@ namespace GUI_SF18_2016.GUI
             {
                 foreach (Akcija akcija in MainWindow.listaAkcija)
                 {
-                    cbAkcijaID.Items.Add(akcija.Id);
+                    if(!akcija.Obrisana)
+                        cbAkcijaID.Items.Add(akcija.Id);
                 }
  
             }

@@ -33,8 +33,8 @@ namespace GUI_SF18_2016.GUI
             {
                 foreach (Namestaj nam in MainWindow.listaNamestaja)
                 {
-
-                    cbNamestajID.Items.Add(nam.Id);
+                    if(!nam.Obrisan)
+                        cbNamestajID.Items.Add(nam.Id);
                 }
                 cbNamestajID.SelectedIndex = 0;
                 lbNazivNamestaja.Content = MainWindow.listaNamestaja.ElementAt(0).Naziv;

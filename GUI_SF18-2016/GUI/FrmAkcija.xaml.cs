@@ -50,7 +50,10 @@ namespace GUI_SF18_2016.GUI
 
         private void btnUpisi_Click(object sender, RoutedEventArgs e)
         {
-            if (vrstaPristupa == "izmena")
+            if (Convert.ToDouble(tbPopust.Text) < 1 || Convert.ToDouble(tbPopust.Text) > 100) {
+                MessageBox.Show("Popust mora biti u opsegu 1-100!");
+            }
+            else if (vrstaPristupa == "izmena")
             {
                 foreach (Akcija akcija in MainWindow.listaAkcija)
                 {
@@ -69,6 +72,7 @@ namespace GUI_SF18_2016.GUI
 
                     }
                 }
+                this.Close();
             }
             else
             {
@@ -97,10 +101,13 @@ namespace GUI_SF18_2016.GUI
                    + novaAkcija.Popust + "','"
                    + novaAkcija.DatumZavrsetka + "','"
                    + novaAkcija.Obrisana + "');");
+
+                this.Close();
+
             }
 
 
-            this.Close();
+            
         }
     }
 }

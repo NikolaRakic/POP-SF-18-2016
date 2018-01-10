@@ -70,18 +70,20 @@ namespace GUI_SF18_2016
         {
 
             bool postoji = false;
+            bool obrisan = false;
             TipKorisnika tip = TipKorisnika.Prodavac;
             foreach (Korisnik k in listaKorisnika) {
 
                 if (k.KorisnickoIme == tbKorisnickoIme.Text && k.Lozinka == tbLozinka.Text)
                 {
                     postoji = true;
+                    obrisan = k.Obrisan;
                     if (k.Tip == TipKorisnika.Administrator)
                         tip = TipKorisnika.Administrator;
                 }
             }
 
-            if (postoji && tip==TipKorisnika.Administrator)
+            if (postoji && tip==TipKorisnika.Administrator && !obrisan)
             {
                 vrstaPrikaza = "namestaj";
                 dataGrid.ItemsSource = listaNamestaja;
@@ -103,7 +105,7 @@ namespace GUI_SF18_2016
                 btnBrisi.Visibility = Visibility.Visible;
                 btnOdjava.Visibility = Visibility.Visible;
             }
-            else if (postoji && tip == TipKorisnika.Prodavac)
+            else if (postoji && tip == TipKorisnika.Prodavac && !obrisan)
             {
                 vrstaPrikaza = "prodaja";
                 dataGrid.ItemsSource = listaProdaja;
